@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('list files') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('list files') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Build program') {
+          steps {
+            sh 'cd . && g++ CMH_OR.cpp'
+          }
+        }
+
       }
     }
 
