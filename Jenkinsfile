@@ -9,7 +9,7 @@ pipeline {
 
     stage('checkout code') {
       steps {
-        git(url: 'https://github.com/aakashk49/NAND2Tetris-Assembler', branch: 'main')
+        git(url: 'https://github.com/aakashk49/CMH-OR', branch: 'main')
       }
     }
 
