@@ -1,26 +1,21 @@
 pipeline {
   agent any
   stages {
+    stage('install git') {
+      steps {
+        sh 'sudo apt install git'
+      }
+    }
+
     stage('checkout code') {
       steps {
         git(url: 'https://github.com/aakashk49/NAND2Tetris-Assembler', branch: 'main')
       }
     }
 
-    stage('list files') {
-      parallel {
-        stage('list files') {
-          steps {
-            sh 'ls -la'
-          }
-        }
-
-        stage('Build program') {
-          steps {
-            sh 'cd . && g++ Assembler.cpp && ls -la'
-          }
-        }
-
+    stage('List') {
+      steps {
+        sh 'ls -la'
       }
     }
 
