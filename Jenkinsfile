@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build program') {
           steps {
-            sh 'cd . && g++ CMH_OR.cpp'
+            sh 'cd . && g++ CMH_OR.cpp && ls -la'
           }
         }
 
