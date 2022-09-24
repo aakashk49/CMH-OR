@@ -14,8 +14,19 @@ pipeline {
     }
 
     stage('List') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('List') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('build') {
+          steps {
+            sh 'g++ *.cpp && ls -la'
+          }
+        }
+
       }
     }
 
