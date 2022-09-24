@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('checkout code') {
       steps {
-        git(url: 'https://github.com/aakashk49/CMH-OR', branch: 'main')
+        git(url: 'https://github.com/aakashk49/NAND2Tetris-Assembler', branch: 'main')
       }
     }
 
@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build program') {
           steps {
-            sh 'cd . && g++ CMH_OR.cpp && ls -la'
+            sh 'cd . && g++ Assembler.cpp && ls -la'
           }
         }
 
